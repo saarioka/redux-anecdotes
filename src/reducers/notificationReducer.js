@@ -2,10 +2,16 @@ const notificationAtStart = 'Take note'
 
 export const createNotification = (content) => {
   return {
-    type: 'NEW_NOTIFICATION',
+    type: 'CREATE_NOTIFICATION',
     data: {
       content
     }
+  }
+}
+
+export const clearNotification = () => {
+  return {
+    type: 'CLEAR_NOTIFICATION'
   }
 }
 
@@ -16,8 +22,10 @@ const notificationReducer = (state = initialState, action) => {
   console.log('noticifation action', action)
 
   switch (action.type){
-    case 'NEW_NOTIFICATION':
+    case 'CREATE_NOTIFICATION':
       return action.data.content
+    case 'CLEAR_NOTIFICATION':
+      return null
     default:
       return state
   }
