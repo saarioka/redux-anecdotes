@@ -3,6 +3,7 @@ import { createVote, createAnecdote } from './reducers/anecdoteReducer'
 
 const App = (props) => {
   const anecdotes = props.store.getState()
+  anecdotes.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
 
   const vote = (id) => {
     //console.log('vote', id)
