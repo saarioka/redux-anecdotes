@@ -14,11 +14,19 @@ const AnecdoteList = ({store}) => {
 			store.dispatch(clearNotification())
 		}, 5000)
   }
+  
+  const filterAnecdotes = (condition) => {
+    return(
+      condition
+      ? anecdotes.filter(a => a.content.includes(condition))
+      : anecdotes
+    )
+  }
 
   return(
     <div>
       <h2>Anecdotes</h2>
-      {anecdotes.map(anecdote =>
+      {filterAnecdotes(store.getState().filter).map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}
