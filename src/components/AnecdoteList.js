@@ -1,12 +1,12 @@
 import React from 'react'
 import {createVote} from '../reducers/anecdoteReducer'
 
-const AnecdoteList = ({props}) => {
-  const anecdotes = props.store.getState()
+const AnecdoteList = ({store}) => {
+  const anecdotes = store.getState()
   anecdotes.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
 
   const vote = (id) => {
-    props.store.dispatch(
+    store.dispatch(
       createVote(id)
     )
   }
