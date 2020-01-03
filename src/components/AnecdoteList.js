@@ -2,7 +2,7 @@ import React from 'react'
 import {createVote} from '../reducers/anecdoteReducer'
 
 const AnecdoteList = ({store}) => {
-  const anecdotes = store.getState()
+  const anecdotes = store.getState().anecdotes
   anecdotes.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
 
   const vote = (id) => {
