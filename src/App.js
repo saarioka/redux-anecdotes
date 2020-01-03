@@ -1,11 +1,17 @@
 import React from 'react';
+import { createVote } from './reducers/anecdoteReducer'
 
 const App = (props) => {
   const anecdotes = props.store.getState()
 
   const vote = (id) => {
     console.log('vote', id)
+    props.store.dispatch(
+      createVote(id)
+    )
   }
+
+  console.log(anecdotes)
 
   return (
     <div>
