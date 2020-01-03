@@ -5,7 +5,7 @@ import { createNotification, clearNotification } from '../reducers/notificationR
 
 const AnecdoteList = (props) => {
   const vote = (id) => {
-    const voted = props.anecdotes.find(a => { return a.id === id })
+    const voted = props.visibleAnecdotes.find(a => { return a.id === id })
     props.createVote(id)
     props.createNotification(`you voted '${voted.content}'`)
     setTimeout(() => {
